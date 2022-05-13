@@ -17,7 +17,10 @@ import java.util.List;
 public class festivalRun {
     @Id
     private int festivalRunId;
-
+    private String festivalRunDuration;
+    private String festivalRunTime;
+    private String festivalRunDate;
+    private int festivalId;
     @ManyToOne
     Festival festival;
 
