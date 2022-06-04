@@ -1,5 +1,4 @@
 package controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import service.showServices;
@@ -10,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class showController {
     @Autowired
-    private showServices show_Controller;
+    private showServices showService;
 
     @PostMapping("/addshow")
     public show addShow(@RequestBody show show)
     {
-        return show_Controller.save(show);
+        return showService.save(show);
     }
 }

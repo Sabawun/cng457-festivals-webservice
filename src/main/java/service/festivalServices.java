@@ -12,18 +12,16 @@ public class festivalServices
     @Autowired
     private festivalRepository FSRepository;
 
-    public Festival save (Festival fest)
-    {
-        return FSRepository.save(fest);
+    public Festival saveFestival(Festival c){
+        return FSRepository.save(c);
     }
-
     public Festival getFestival(int id)
     {
         return FSRepository.findById(id).orElse(null);
     }
-    public List<Festival> getFestivalsByCityName(String festivalPlace)
+    public List<Festival> getFestivalsCityName(String City)
     {
-        return FSRepository.findByCityName(festivalPlace);
+        return FSRepository.findByCityName(City);
     }
     public List<Festival> getAllFestivals()
     {

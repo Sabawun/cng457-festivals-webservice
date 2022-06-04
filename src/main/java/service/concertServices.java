@@ -12,9 +12,9 @@ public class concertServices
     @Autowired
     private concertRepository concert_Repository;
 
-    public concert save (concert concert)
+    public concert save (concert Concerts)
     {
-        return concert_Repository.save(concert);
+        return concert_Repository.save(Concerts);
     }
 
 

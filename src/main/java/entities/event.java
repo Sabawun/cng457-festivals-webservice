@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.ManyToOne;
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @NoArgsConstructor

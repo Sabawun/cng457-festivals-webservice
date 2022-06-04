@@ -18,7 +18,7 @@ public class festivalRun {
     @Id
     private int festivalRunId;
     private String festivalRunDuration;
-    private String festivalRunTime;
+    private int festivalRunTime;
     private String festivalRunDate;
     private int festivalId;
     @ManyToOne
@@ -27,8 +27,7 @@ public class festivalRun {
     @OneToMany (mappedBy = "event", cascade = CascadeType.ALL)
     List <event> eventList;
 
-    @ManyToMany
+    @ManyToMany (mappedBy = "festivalRuns", cascade = CascadeType.ALL)
     List<organizer> organizers;
-
 
 }

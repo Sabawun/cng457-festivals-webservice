@@ -1,5 +1,4 @@
 package controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import entities.organizer;
@@ -10,11 +9,11 @@ import service.organizerServices;
 @RestController
 public class organizerController {
     @Autowired
-    private organizerServices organizer_Controller;
+    private organizerServices organizerService;
 
-    @PostMapping("/addshow")
-    public organizer addOrganizer(@RequestBody organizer show)
+    @PostMapping("/addorganizer")
+    public organizer addOrganizer(@RequestBody organizer organizer)
     {
-        return organizer_Controller.save(show);
+        return organizerService.save(organizer);
     }
 }

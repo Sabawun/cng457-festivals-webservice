@@ -20,5 +20,10 @@ public class organizer {
     private String lastName;
 
     @ManyToMany
+    @JoinTable(
+            name = "festival_runs",
+            joinColumns = @JoinColumn(name = "phone"),
+            inverseJoinColumns = @JoinColumn(name = "festivalRunId")
+    )
     List<festivalRun> festivalRuns;
 }

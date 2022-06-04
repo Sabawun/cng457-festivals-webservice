@@ -1,38 +1,36 @@
 package controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import service.festivalServices;
 import entities.Festival;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+
 @RestController
 public class festivalController {
     @Autowired
-    private festivalServices festivalController;
+    private festivalServices festivalService;
 
     @PostMapping("/addfestival")
-    public Festival addFest(@RequestBody Festival fest)
+    public Festival save(@RequestBody Festival c)
     {
-        return festivalController.save(fest);
+        return festivalService.saveFestival(c);
     }
-    @PostMapping("/getfestival/{festivalid}")
+    @GetMapping("/getfestival/{festivalid}")
     public Festival getFestival(@PathVariable int festivalId)
     {
-        return festivalController.getFestival(festivalId);
+        return festivalService.getFestival(festivalId);
     }
 
-    @PostMapping("/getallfestivals")
+    @GetMapping("/getallfestivals")
     public List<Festival> getAllFestivals()
     {
-        return festivalController.getAllFestivals();
+        return festivalService.getAllFestivals();
     }
 
-    @PostMapping("/getfestivalsforacity/{city}")
-    public List<Festival> getFestivalsByCityName(@PathVariable String festivalPlace)
+    @GetMapping("/getfestivalsforacity/{city}")
+    public List<Festival> getFestivalsByCityName(@PathVariable String city)
     {
-        return festivalController.getFestivalsByCityName(festivalPlace);
+        return festivalService.getFestivalsCityName(city);
     }
 
 }

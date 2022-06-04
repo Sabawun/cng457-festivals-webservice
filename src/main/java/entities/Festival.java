@@ -16,13 +16,14 @@ import java.util.List;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "festivalId")
 
 public class Festival{
+
     @Id
     @Column(name = "FestivalId")
     private int festivalId;
     @Column(name = "Festival Name")
     private String festivalName;
-    @Column(name = "Festival Place")
-    private String festivalPlace;
+    @Column(name = "City Name")
+    private String CityName;
 
     @OneToMany (mappedBy = "festivalRun", cascade = CascadeType.ALL)
     List <festivalRun> festivalRunList;
