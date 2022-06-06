@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface festivalRepository extends JpaRepository<Festival, Integer>
 {
-
+    List<Festival> findByfestivalNameContaining(String key);
     List<Festival> findBycityName(String cityName);
 
 }

@@ -22,6 +22,7 @@ public class event {
     @Column(name = "eventId")
     private int eventId;
     private Date date;
+    private int duration;
     private String description;
     @ManyToOne(cascade = CascadeType.ALL)
     private festivalRun festivalRun;

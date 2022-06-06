@@ -26,6 +26,11 @@ public class festivalServices
     {
         return FSRepository.findBycityName(City);
     }
+
+    public List<Festival> festivalByName(String name)
+    {
+        return FSRepository.findByfestivalNameContaining(name);
+    }
     public List<Festival> getAllFestivals()
     {
         return FSRepository.findAll();

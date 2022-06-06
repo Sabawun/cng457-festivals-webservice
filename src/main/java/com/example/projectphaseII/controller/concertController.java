@@ -1,16 +1,21 @@
 package com.example.projectphaseII.controller;
 import com.example.projectphaseII.entities.concert;
 import com.example.projectphaseII.service.concertServices;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class concertController {
     @Autowired
     private concertServices concertService;
 
+    @GetMapping("/concertsbydescription")
+    public List<concert> findConcertByDescription(@RequestParam(name = "description") String description)
+    {
+        return concertService.findConcertByDescription(description);
+    }
     @PostMapping("/addconcert")
     public concert addConcert(@RequestBody concert Concerts)
     {

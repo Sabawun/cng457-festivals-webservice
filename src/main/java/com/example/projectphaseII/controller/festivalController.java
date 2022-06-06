@@ -39,6 +39,11 @@ public class festivalController {
         return festivalService.getAllFestivals();
     }
 
+    @GetMapping ("/festivalsbyname")
+    public List<Festival> festivalByName(@RequestParam(name = "festivalName") String festivalName)
+            {
+            return festivalService.festivalByName(festivalName);
+            }
     @GetMapping("/getfestivalsforacity/{city}")
     public List<Festival> getFestivalsBycityName(@PathVariable String city)
     {
