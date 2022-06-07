@@ -1,6 +1,6 @@
-package repository;
+package com.example.projectphaseII.repository;
 
-import entities.others;
+import com.example.projectphaseII.entities.others;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface otherRepository extends JpaRepository<others, Integer> {

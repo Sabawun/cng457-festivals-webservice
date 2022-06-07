@@ -1,4 +1,4 @@
-package entities;
+package com.example.projectphaseII.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -13,18 +13,19 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "eventName")
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "eventId")
 
 
 public class event {
     @Id
-    @Column(name = "Id")
-    private int festivalId;
+    @Column(name = "eventId")
+    private int eventId;
     private Date date;
+    private int duration;
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "festivalRunId")
-    festivalRun festivalRun;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private festivalRun festivalRun;
 
 }
 

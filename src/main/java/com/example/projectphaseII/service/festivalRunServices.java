@@ -1,8 +1,8 @@
-package service;
+package com.example.projectphaseII.service;
 
 
-import entities.festivalRun;
-import repository.festivalRunRepository;
+import com.example.projectphaseII.entities.festivalRun;
+import com.example.projectphaseII.repository.festivalRunRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +17,7 @@ public class festivalRunServices {
 
     public festivalRun saveFestivalRun (festivalRun C)
     {
+
         return FSR.save(C);
     }
     public festivalRun getFestivalRun(int id)
@@ -30,7 +31,7 @@ public class festivalRunServices {
         List<festivalRun> festivalruns = FSR.findAll();
         for (festivalRun festivalbyId: festivalruns)
         {
-            if(festivalbyId.getFestivalId() == festivalId)
+            if(festivalbyId.getFestival().getFestivalId() == festivalId)
             {
                 results.add(festivalbyId);
             }
