@@ -34,7 +34,7 @@ public class concertservicestest {
                 ArrayList(concerts));
 
         List<concert> concertList = concertServices.findLongestConcerts();
-       // Assertions.assertEquals(3,concertList.size());
+        Assertions.assertEquals(1,concertList.size());
         Assertions.assertEquals("Sabawun",concertList.get(0).getPerformerName());
 
     };

@@ -37,7 +37,7 @@ public class showservicestest {
                 ArrayList(array_show));
 
         List<shows> showList = showService.maximumPerformers();
-        //Assertions.assertEquals(array_show.size()-1,showList.size());
+        Assertions.assertEquals(array_show.size()-2,showList.size());
         Assertions.assertEquals("Onur,Abdullah,Sabawun",showList.get(0).getPerformers());
     }
 }
