@@ -11,7 +11,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(classes = ProjectPhaseIIApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = ProjectPhaseIIApplication.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class showControllertest {
 
 
@@ -23,7 +23,12 @@ public class showControllertest {
 
     @Test
     void findByDurationBetween() {
-        assertEquals(this.restTemplate.getForObject("http://localhost:8080/showsbyduration?start=1&end=7", shows[].class).length,4);
+        assertEquals(this.restTemplate.getForObject("http://localhost:" + port + "/showsbyduration?start=1&end=7", shows[].class).length,4);
+    }
+    @Test
+    void Crowdedshows() {
+        assertEquals(this.restTemplate.getForObject("http://localhost:" + port + "/crowdedshows", shows[].class).length,3);
+
     }
 
 }

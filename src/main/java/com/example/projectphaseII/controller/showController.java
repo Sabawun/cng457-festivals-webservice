@@ -22,4 +22,10 @@ public class showController {
     {
         return showService.save(show);
     }
+
+    @GetMapping("crowdedshows")
+    public List<shows> Crowdedshows ()
+    {
+        return showService.maximumPerformers();
+    }
 }
