@@ -1,4 +1,4 @@
-package entities;
+package com.example.projectphaseII.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
@@ -14,16 +14,17 @@ import java.util.List;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "phone")
 public class organizer {
     @Id
+    @Column (name = "phone")
     private String phone;
     private String email;
     private String firstName;
     private String lastName;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "festival_runs",
-            joinColumns = @JoinColumn(name = "phone"),
-            inverseJoinColumns = @JoinColumn(name = "festivalRunId")
+            name = "festivalRun_organizer",
+            joinColumns = {@JoinColumn(name = "phone")},
+            inverseJoinColumns = {@JoinColumn(name = "frID")}
     )
-    List<festivalRun> festivalRuns;
+    private List<festivalRun> festivalRuns;
 }

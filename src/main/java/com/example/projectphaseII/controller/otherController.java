@@ -1,8 +1,8 @@
-package controller;
+package com.example.projectphaseII.controller;
+import com.example.projectphaseII.entities.others;
+import com.example.projectphaseII.service.otherServices;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import service.otherServices;
-import entities.others;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 

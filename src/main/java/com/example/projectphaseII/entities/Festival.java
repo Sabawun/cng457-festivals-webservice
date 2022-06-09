@@ -1,4 +1,4 @@
-package entities;
+package com.example.projectphaseII.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -18,14 +18,17 @@ import java.util.List;
 public class Festival{
 
     @Id
-    @Column(name = "FestivalId")
     private int festivalId;
-    @Column(name = "Festival Name")
     private String festivalName;
-    @Column(name = "City Name")
-    private String CityName;
+    private String cityName;
 
-    @OneToMany (mappedBy = "festivalRun", cascade = CascadeType.ALL)
-    List <festivalRun> festivalRunList;
+    public Festival(int id,String name, String age) {
+        super();
+        this.festivalId=id;
+        this.festivalName = name;
+        this.cityName = age;
+    }
+    @OneToMany (mappedBy = "festival", cascade = CascadeType.ALL)
+    private List <festivalRun> festivalRunList;
 }
 
