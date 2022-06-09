@@ -15,12 +15,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class concertControllertest {
 
     @Autowired
-    private TestRestTemplate restTemplate;
+    TestRestTemplate restTemplate;
 
     @LocalServerPort
-    private int port;
+    int port ;
+
     @Test
     void findConcertByDescription() {
-        assertEquals(this.restTemplate.getForObject("https://localhost:" + port + "/concertsbydescription",concert[].class).length,0);
+        assertEquals(this.restTemplate.getForObject("http://localhost:8080/concertsbydescription?description=Sabawun",concert[].class).length,1);
     }
+    @Test
+    void findLongest(){
+        assertEquals(this.restTemplate.getForObject("http://localhost:8080/longestconcerts",concert[].class).length,1);
+       // assertEquals(this.restTemplate.getForObject("http://localhost:8080/longestconcerts",concert.class).getEventId(),0);
+       // assertEquals(this.restTemplate.getForObject("http://localhost:8080/longestconcerts",concert.class).getDescription(),"Concert By Sabawun");
+    }
+
 }
